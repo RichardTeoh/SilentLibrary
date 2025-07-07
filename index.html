@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="d-flex flex-column min-vh-100">
-   <div id="header" data-level="0"></div>
+    <div id="header" data-level="0"></div>
 
     <main class="flex-fill">
       <div class="container mt-4">
@@ -31,23 +31,13 @@
         <div class="row">
           <div class="col-md-8">
             <h3>New Books</h3>
-            <div class="d-flex flex-wrap mb-3">
-              <a href="pages/bookdetails_B00001.html"><img src="assets/B00001.jpg" class="me-3 mb-2 book-img" alt="B00001"></a>
-              <a href="pages/bookdetails_B00002.html"><img src="assets/B00002.jpg" class="me-3 mb-2 book-img" alt="B00002"></a>
-              <a href="pages/bookdetails_B00005.html"><img src="assets/B00005.jpg" class="me-3 mb-2 book-img" alt="B00005"></a>
-              <a href="pages/bookdetails_B00007.html"><img src="assets/B00007.jpg" class="me-3 mb-2 book-img" alt="B00007"></a>
-              <a href="pages/bookdetails_B00008.html"><img src="assets/B00008.jpg" class="me-3 mb-2 book-img" alt="B00008"></a>
-              <a href="pages/bookdetails_B00009.html"><img src="assets/B00009.jpg" class="me-3 mb-2 book-img" alt="B00009"></a>
+            <div class="d-flex flex-wrap mb-3" id="newBooksContainer">
+              <!-- New books will be inserted here -->
             </div>
 
             <h3>Popular Books</h3>
-            <div class="d-flex flex-wrap">
-              <a href="pages/bookdetails_B00003.html"><img src="assets/B00003.jpg" class="me-3 mb-2 book-img" alt="B00003"></a>
-              <a href="pages/bookdetails_B00004.html"><img src="assets/B00004.jpg" class="me-3 mb-2 book-img" alt="B00004"></a>
-              <a href="pages/bookdetails_B00010.html"><img src="assets/B00010.jpg" class="me-3 mb-2 book-img" alt="B00010"></a>
-              <a href="pages/bookdetails_B00011.html"><img src="assets/B00011.jpg" class="me-3 mb-2 book-img" alt="B00011"></a>
-              <a href="pages/bookdetails_B00012.html"><img src="assets/B00012.jpg" class="me-3 mb-2 book-img" alt="B00012"></a>
-              <a href="pages/bookdetails_B00013.html"><img src="assets/B00013.jpg" class="me-3 mb-2 book-img" alt="B00013"></a>
+            <div class="d-flex flex-wrap" id="popularBooksContainer">
+              <!-- Popular books will be inserted here -->
             </div>
           </div>
 
@@ -68,22 +58,43 @@
 
     <div id="footer" data-level="0"></div>
   </div>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="scripts/bookdata.js"></script>
   <script src="scripts/header-paths.js"></script>
   <script src="scripts/footer-paths.js"></script>
-  <script>
-      $(function () {
-        $("#header").load("header.html", function () {
-          adjustHeaderPaths($("#header").data("level"));
-        });
 
-        $("#footer").load("footer.html", function () {
-          adjustFooterPaths($("#footer").data("level"));
-        });
+  <script>
+    $(function () {
+      $("#header").load("header.html", function () {
+        adjustHeaderPaths($("#header").data("level"));
       });
-    </script>
-  
+
+      $("#footer").load("footer.html", function () {
+        adjustFooterPaths($("#footer").data("level"));
+      });
+
+      // Hardcoded Reference Numbers for display
+      const newBooksRefs = ["B00001", "B00002", "B00005", "B00007", "B00008", "B00009"];
+      const popularBooksRefs = ["B00003", "B00004", "B00010", "B00011", "B00012", "B00013"];
+
+      function renderBooks(refList, containerId) {
+        const container = document.getElementById(containerId);
+        refList.forEach(ref => {
+          const book = bookData.find(b => b.referenceNo === ref);
+          if (book) {
+            const anchor = document.createElement("a");
+            anchor.href = `pages/bookdetails_${book.referenceNo}.html`;
+            anchor.innerHTML = `<img src="assets/${book.referenceNo}.jpg" class="me-3 mb-2 book-img" alt="${book.referenceNo}">`;
+            container.appendChild(anchor);
+          }
+        });
+      }
+
+      renderBooks(newBooksRefs, "newBooksContainer");
+      renderBooks(popularBooksRefs, "popularBooksContainer");
+    });
+  </script>
 </body>
 </html>
