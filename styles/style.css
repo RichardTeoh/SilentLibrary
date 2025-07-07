@@ -20,8 +20,9 @@ html, body {
 }
 
 .book-img {
-  width: 100px;
-  height: auto;
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
   cursor: pointer;
 }
 
@@ -29,4 +30,12 @@ html, body {
   width: 100%;
   height: auto;
   cursor: pointer;
+}
+
+h2 {
+  color: #2e7d32;
+}
+
+h5 {
+  font-style: italic;
 }
