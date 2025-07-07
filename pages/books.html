@@ -1,4 +1,4 @@
-<!-- books.html -->
+<!-- pages/books.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,23 +10,30 @@
   <link rel="icon" type="image/png" href="../assets/SL-Logo-Small.png">
   <style>
     #backToTopBtn {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: 40px;
-    right: 20px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: #198754; /* Bootstrap success */
-    color: white;
-    cursor: pointer;
-    padding: 10px 14px;
-    border-radius: 50%;
-    font-size: 16px;
-  }
-  #backToTopBtn:hover {
-    background-color: #145c32;
-  }
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #198754;
+      color: white;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 16px;
+    }
+
+    #backToTopBtn:hover {
+      background-color: #145c32;
+    }
+
+    .book-img {
+      width: 120px;
+      height: auto;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -35,174 +42,33 @@
   <div class="container mt-4">
     <h3>Books Collection</h3>
     <div class="row mb-4">
-      <div class="col-md-10">
-        <input type="text" class="form-control" placeholder="Search Book Title">
+      <div class="col-md-6 mb-2">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search Book Title">
+      </div>
+      <div class="col-md-4 mb-2">
+        <select id="authorFilter" class="form-select">
+          <option value="">All Authors</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-primary w-100">Search</button>
+        <button class="btn btn-primary w-100" onclick="applyFilters()">Search</button>
       </div>
     </div>
-    <div class="row g-4">
-      
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00001.html"><img src="../assets/B00001.jpg" class="me-3 book-img" alt="B00001"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00001.html">B00001</a></strong></p>
-        <p>Title: Atmosphere</p>
-        <p>Author: Taylor Jenkins Reid</p>
-        <p>Publisher: Ballantine Books</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00002.html"><img src="../assets/B00002.jpg" class="me-3 book-img" alt="B00002"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00002.html">B00002</a></strong></p>
-        <p>Title: Sunrise on the Reaping (A Hunger Games Novel)</p>
-        <p>Author: Suzanne Collins</p>
-        <p>Publisher: Scholastic</p>
-        <p>Published Date: 2025-03-18</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00003.html"><img src="../assets/B00003.jpg" class="me-3 book-img" alt="B00003"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00003.html">B00003</a></strong></p>
-        <p>Title: The Let Them Theory</p>
-        <p>Author: Mel Robbins & Sawyer Robbins</p>
-        <p>Publisher: Hay House Inc.</p>
-        <p>Published Date: 2024-12-24</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00004.html"><img src="../assets/B00004.jpg" class="me-3 book-img" alt="B00004"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00004.html">B00004</a></strong></p>
-        <p>Title: Fourth Wing</p>
-        <p>Author: Rebecca Yarros</p>
-        <p>Publisher: Red Tower Books</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00005.html"><img src="../assets/B00005.jpg" class="me-3 book-img" alt="B00005"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00005.html">B00005</a></strong></p>
-        <p>Title: Never Flinch</p>
-        <p>Author: Stephen King</p>
-        <p>Publisher: Scribner</p>
-        <p>Published Date: 2025-05-27</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00006.html"><img src="../assets/B00006.jpg" class="me-3 book-img" alt="B00006"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00006.html">B00006</a></strong></p>
-        <p>Title: A Council of Dolls</p>
-        <p>Author: Mona Susan Power</p>
-        <p>Publisher: Mariner Books (HarperCollins)</p>
-        <p>Published Date: 2023-08-08</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00007.html"><img src="../assets/B00007.jpg" class="me-3 book-img" alt="B00007"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00007.html">B00007</a></strong></p>
-        <p>Title: The Spirit Bares Its Teeth</p>
-        <p>Author: Andrew Joseph White</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 2023-09-05</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00008.html"><img src="../assets/B00008.jpg" class="me-3 book-img" alt="B00008"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00008.html">B00008</a></strong></p>
-        <p>Title: Yellowface</p>
-        <p>Author: R.F. Kuang</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00009.html"><img src="../assets/B00009.jpg" class="me-3 book-img" alt="B00009"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00009.html">B00009</a></strong></p>
-        <p>Title: The Heaven & Earth Grocery Store</p>
-        <p>Author: James McBride</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00010.html"><img src="../assets/B00010.jpg" class="me-3 book-img" alt="B00010"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00010.html">B00010</a></strong></p>
-        <p>Title: Cobalt Red</p>
-        <p>Author: Siddharth Kara</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00011.html"><img src="../assets/B00011.jpg" class="me-3 book-img" alt="B00011"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00011.html">B00011</a></strong></p>
-        <p>Title: My Sister’s Keeper</p>
-        <p>Author: Jodi Picoult</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00012.html"><img src="../assets/B00012.jpg" class="me-3 book-img" alt="B00012"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00012.html">B00012</a></strong></p>
-        <p>Title: Cloud Atlas</p>
-        <p>Author: David Mitchell</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00013.html"><img src="../assets/B00013.jpg" class="me-3 book-img" alt="B00013"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00013.html">B00013</a></strong></p>
-        <p>Title: P.S. I Love You</p>
-        <p>Author: Cecelia Ahern</p>
-        <p>Publisher: —</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00014.html"><img src="../assets/B00014.jpg" class="me-3 book-img" alt="B00014"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00014.html">B00014</a></strong></p>
-        <p>Title: Eragon</p>
-        <p>Author: Christopher Paolini</p>
-        <p>Publisher: Knopf</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
-    <div class="col-md-12 d-flex border p-3">
-      <a href="bookdetails_B00015.html"><img src="../assets/B00015.jpg" class="me-3 book-img" alt="B00015"></a>
-      <div>
-        <p><strong><a href="bookdetails_B00015.html">B00015</a></strong></p>
-        <p>Title: The Da Vinci Code</p>
-        <p>Author: Dan Brown</p>
-        <p>Publisher: Doubleday</p>
-        <p>Published Date: 1970-01-01</p>
-      </div>
-    </div>
+
+    <div class="row g-4" id="bookListContainer">
+      <!-- Books will be dynamically injected here -->
     </div>
   </div>
 
   <div id="footer" data-level="1"></div>
-    
+
+  <button id="backToTopBtn" class="btn btn-success" title="Go to top">↑ Top</button>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
   <script src="../scripts/header-paths.js"></script>
   <script src="../scripts/footer-paths.js"></script>
+  <script src="../scripts/bookdata.js"></script>
 
   <script>
     $(function () {
@@ -211,16 +77,19 @@
       });
 
       $("#footer").load("../footer.html", function () {
-          adjustFooterPaths($("#footer").data("level"));
+        adjustFooterPaths($("#footer").data("level"));
       });
 
-      // Show/hide and scroll to top logic
+      // Populate author dropdown
+      const authors = [...new Set(bookData.map(b => b.author))].sort();
+      for (let author of authors) {
+        $('#authorFilter').append(`<option value="${author}">${author}</option>`);
+      }
+
+      renderBooks(bookData);
+
       $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-          $("#backToTopBtn").fadeIn();
-        } else {
-          $("#backToTopBtn").fadeOut();
-        }
+        $("#backToTopBtn").toggle($(this).scrollTop() > 200);
       });
 
       $("#backToTopBtn").click(function () {
@@ -228,12 +97,40 @@
         return false;
       });
     });
-  </script>
-  
-  <!-- Back to Top Button -->
-  <button id="backToTopBtn" class="btn btn-success" title="Go to top">
-    ↑ Top
-  </button>
 
+    function renderBooks(data) {
+      const container = $('#bookListContainer');
+      container.empty();
+      data.forEach(book => {
+        container.append(`
+          <div class="col-md-12 d-flex border p-3">
+            <a href="bookdetails_${book.referenceNo}.html">
+              <img src="../assets/${book.referenceNo}.jpg" class="me-3 book-img" alt="${book.referenceNo}">
+            </a>
+            <div>
+              <p><strong><a href="bookdetails_${book.referenceNo}.html">${book.referenceNo}</a></strong></p>
+              <p>Title: ${book.title}</p>
+              <p>Author: ${book.author}</p>
+              <p>Publisher: ${book.publisher}</p>
+              <p>Published Date: ${book.publishedDate}</p>
+            </div>
+          </div>
+        `);
+      });
+    }
+
+    function applyFilters() {
+      const keyword = $('#searchInput').val().toLowerCase();
+      const selectedAuthor = $('#authorFilter').val();
+
+      const filtered = bookData.filter(book => {
+        const matchesTitle = book.title.toLowerCase().includes(keyword);
+        const matchesAuthor = !selectedAuthor || book.author === selectedAuthor;
+        return matchesTitle && matchesAuthor;
+      });
+
+      renderBooks(filtered);
+    }
+  </script>
 </body>
 </html>
