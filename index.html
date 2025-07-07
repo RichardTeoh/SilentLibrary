@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Silent Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" type="image/png" href="assets/SL-Logo-Small.png">
+  <base href="">
+</head>
+<body>
+  <div class="d-flex flex-column min-vh-100">
+   <div id="header" data-level="0"></div>
+
+    <main class="flex-fill">
+      <div class="container mt-4">
+
+        <!-- Welcome Message -->
+        <div class="mb-5">
+          <h2>Welcome to Silent Library</h2>
+          <h5 class="text-muted">Read. Learn. Grow.</h5>
+          <p>
+            At Silent Library, we believe in the quiet power of reading to transform lives. Whether you're exploring new knowledge, diving into stories, or seeking inspiration, our carefully curated collection is here to support your journey.
+          </p>
+          <p>
+            Embrace the joy of discovery, enrich your understanding, and grow with every page you turn.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <h3>New Books</h3>
+            <div class="d-flex flex-wrap mb-3">
+              <a href="pages/bookdetails_B00001.html"><img src="assets/B00001.jpg" class="me-3 mb-2 book-img" alt="B00001"></a>
+              <a href="pages/bookdetails_B00002.html"><img src="assets/B00002.jpg" class="me-3 mb-2 book-img" alt="B00002"></a>
+              <a href="pages/bookdetails_B00005.html"><img src="assets/B00005.jpg" class="me-3 mb-2 book-img" alt="B00005"></a>
+              <a href="pages/bookdetails_B00007.html"><img src="assets/B00007.jpg" class="me-3 mb-2 book-img" alt="B00007"></a>
+              <a href="pages/bookdetails_B00008.html"><img src="assets/B00008.jpg" class="me-3 mb-2 book-img" alt="B00008"></a>
+              <a href="pages/bookdetails_B00009.html"><img src="assets/B00009.jpg" class="me-3 mb-2 book-img" alt="B00009"></a>
+            </div>
+
+            <h3>Popular Books</h3>
+            <div class="d-flex flex-wrap">
+              <a href="pages/bookdetails_B00003.html"><img src="assets/B00003.jpg" class="me-3 mb-2 book-img" alt="B00003"></a>
+              <a href="pages/bookdetails_B00004.html"><img src="assets/B00004.jpg" class="me-3 mb-2 book-img" alt="B00004"></a>
+              <a href="pages/bookdetails_B00010.html"><img src="assets/B00010.jpg" class="me-3 mb-2 book-img" alt="B00010"></a>
+              <a href="pages/bookdetails_B00011.html"><img src="assets/B00011.jpg" class="me-3 mb-2 book-img" alt="B00011"></a>
+              <a href="pages/bookdetails_B00012.html"><img src="assets/B00012.jpg" class="me-3 mb-2 book-img" alt="B00012"></a>
+              <a href="pages/bookdetails_B00013.html"><img src="assets/B00013.jpg" class="me-3 mb-2 book-img" alt="B00013"></a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Upcoming Events</h3>
+            <div class="row">
+              <div class="col-6">
+                <a href="pages/events.html"><img src="assets/events_29Aug_e1.jpg" class="img-fluid mb-2" alt="Event 1"></a>
+              </div>
+              <div class="col-6">
+                <a href="pages/events.html"><img src="assets/events_night.jpg" class="img-fluid mb-2" alt="Event 2"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer" data-level="0"></div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="scripts/header-paths.js"></script>
+  <script src="scripts/footer-paths.js"></script>
+  <script>
+      $(function () {
+        $("#header").load("header.html", function () {
+          adjustHeaderPaths($("#header").data("level"));
+        });
+
+        $("#footer").load("footer.html", function () {
+          adjustFooterPaths($("#footer").data("level"));
+        });
+      });
+    </script>
+  
+</body>
+</html>
